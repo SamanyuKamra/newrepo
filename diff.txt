@@ -1,0 +1,501 @@
+Only in copy_kernel/linux-5.19.9/: ..vmlinux.export.o.cmd
+Only in copy_kernel/linux-5.19.9/: .Module.symvers.cmd
+Only in copy_kernel/linux-5.19.9/: .clang-format
+Files copy_kernel/linux-5.19.9/.config and new_kernel/linux-5.19.9/.config differ
+Only in copy_kernel/linux-5.19.9/: .config.old
+Only in copy_kernel/linux-5.19.9/: .gitattributes
+Only in copy_kernel/linux-5.19.9/: .missing-syscalls.d
+Files copy_kernel/linux-5.19.9/.modules-only.symvers.cmd and new_kernel/linux-5.19.9/.modules-only.symvers.cmd differ
+Only in copy_kernel/linux-5.19.9/: .modules.order.cmd
+Files copy_kernel/linux-5.19.9/.tmp_System.map and new_kernel/linux-5.19.9/.tmp_System.map differ
+Only in copy_kernel/linux-5.19.9/: .tmp_vmlinux.kallsyms1
+Files copy_kernel/linux-5.19.9/.tmp_vmlinux.kallsyms1.S and new_kernel/linux-5.19.9/.tmp_vmlinux.kallsyms1.S differ
+Only in copy_kernel/linux-5.19.9/: .tmp_vmlinux.kallsyms1.o
+Files copy_kernel/linux-5.19.9/.tmp_vmlinux.kallsyms2 and new_kernel/linux-5.19.9/.tmp_vmlinux.kallsyms2 differ
+Only in copy_kernel/linux-5.19.9/: .tmp_vmlinux.kallsyms2.S
+Only in copy_kernel/linux-5.19.9/: .tmp_vmlinux.kallsyms2.o
+Only in copy_kernel/linux-5.19.9/: .version
+Files copy_kernel/linux-5.19.9/.vmlinux.cmd and new_kernel/linux-5.19.9/.vmlinux.cmd differ
+Only in copy_kernel/linux-5.19.9/: .vmlinux.export.c
+Files copy_kernel/linux-5.19.9/.vmlinux.export.o and new_kernel/linux-5.19.9/.vmlinux.export.o differ
+Only in copy_kernel/linux-5.19.9/: .vmlinux.o.cmd
+Only in copy_kernel/linux-5.19.9/: .vmlinux.objs
+Only in copy_kernel/linux-5.19.9/: COPYING
+Only in copy_kernel/linux-5.19.9/: Kconfig
+Files copy_kernel/linux-5.19.9/Makefile and new_kernel/linux-5.19.9/Makefile differ
+Only in copy_kernel/linux-5.19.9/: Module.symvers
+Only in copy_kernel/linux-5.19.9/: README
+Files copy_kernel/linux-5.19.9/System.map and new_kernel/linux-5.19.9/System.map differ
+Files copy_kernel/linux-5.19.9/arch/x86/entry/syscalls/syscall_64.tbl and new_kernel/linux-5.19.9/arch/x86/entry/syscalls/syscall_64.tbl differ
+Only in copy_kernel/linux-5.19.9/: certs
+Only in copy_kernel/linux-5.19.9/: crypto
+Only in copy_kernel/linux-5.19.9/drivers: .built-in.a.cmd
+Only in copy_kernel/linux-5.19.9/drivers: .modules.order.cmd
+Only in copy_kernel/linux-5.19.9/drivers: Kconfig
+Only in copy_kernel/linux-5.19.9/drivers: amba
+Only in copy_kernel/linux-5.19.9/drivers: android
+Only in copy_kernel/linux-5.19.9/drivers: ata
+Only in copy_kernel/linux-5.19.9/drivers: atm
+Only in copy_kernel/linux-5.19.9/drivers: bcma
+Only in copy_kernel/linux-5.19.9/drivers: bluetooth
+Only in copy_kernel/linux-5.19.9/drivers: built-in.a
+Only in copy_kernel/linux-5.19.9/drivers: cdrom
+Only in copy_kernel/linux-5.19.9/drivers: char
+Only in copy_kernel/linux-5.19.9/drivers: clk
+Only in copy_kernel/linux-5.19.9/drivers: comedi
+Only in copy_kernel/linux-5.19.9/drivers: connector
+Only in copy_kernel/linux-5.19.9/drivers: counter
+Only in copy_kernel/linux-5.19.9/drivers: cpuidle
+Only in copy_kernel/linux-5.19.9/drivers: crypto
+Only in copy_kernel/linux-5.19.9/drivers: cxl
+Only in copy_kernel/linux-5.19.9/drivers: dax
+Only in copy_kernel/linux-5.19.9/drivers: devfreq
+Only in copy_kernel/linux-5.19.9/drivers: edac
+Only in copy_kernel/linux-5.19.9/drivers: eisa
+Only in copy_kernel/linux-5.19.9/drivers: extcon
+Only in copy_kernel/linux-5.19.9/drivers: firmware
+Only in copy_kernel/linux-5.19.9/drivers: gnss
+Files copy_kernel/linux-5.19.9/drivers/gpu/.built-in.a.cmd and new_kernel/linux-5.19.9/drivers/gpu/.built-in.a.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/.modules.order.cmd and new_kernel/linux-5.19.9/drivers/gpu/.modules.order.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/built-in.a and new_kernel/linux-5.19.9/drivers/gpu/built-in.a differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .built-in.a.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_aperture.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_aperture.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_atomic.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_atomic.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_atomic_helper.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_atomic_state_helper.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_atomic_uapi.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_auth.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_auth.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_blend.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_blend.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_bridge.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_bridge.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_bridge_connector.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_cache.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_cache.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_client.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_client_modeset.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_color_mgmt.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_color_mgmt.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_connector.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_connector.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_crtc.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_crtc.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_crtc_helper.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_damage_helper.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_debugfs.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_debugfs_crc.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_displayid.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_displayid.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_drv.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_drv.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_dumb_buffers.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_dumb_buffers.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_edid.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_edid.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_edid_load.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_encoder.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_encoder.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_encoder_slave.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_fb_helper.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_file.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_file.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_flip_work.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_format_helper.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_fourcc.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_fourcc.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_framebuffer.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_framebuffer.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_gem.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_gem.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_gem_atomic_helper.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_gem_framebuffer_helper.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_gem_shmem_helper.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_gem_ttm_helper.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_ioc32.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_ioctl.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_ioctl.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_kms_helper_common.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_lease.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_lease.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_managed.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_mm.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_mm.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_mode_config.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_mode_config.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_mode_object.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_mode_object.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_modes.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_modes.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_modeset_helper.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_modeset_lock.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_modeset_lock.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_nomodeset.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_panel.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_panel_orientation_quirks.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_pci.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_plane.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_plane.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_plane_helper.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_prime.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_prime.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_print.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_print.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_probe_helper.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_property.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_property.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_rect.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_self_refresh_helper.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_simple_kms_helper.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_syncobj.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_syncobj.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_sysfs.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_sysfs.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_trace_points.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_trace_points.o.cmd differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_vblank.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_vblank.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_vblank_work.o.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/.drm_vma_manager.o.cmd and new_kernel/linux-5.19.9/drivers/gpu/drm/.drm_vma_manager.o.cmd differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .drm_writeback.o.cmd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: .modules.order.cmd
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_4_2_2_sh_mask.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_4_2_2_sh_mask.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_4_2_3_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_4_2_3_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_4_2_3_sh_mask.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg/dpcs/dpcs_4_2_3_sh_mask.h differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: gc
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: gca
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: gmc
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: hdp
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: lsdma
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: mmhub
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: mp
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: nbif
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: nbio
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: oss
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: pwr
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: rsmu
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: sdma
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: sdma0
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: sdma1
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: sdma2
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: sdma3
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: sdma4
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: sdma5
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: sdma6
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: sdma7
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: smu
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: smuio
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: thm
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: umc
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: uvd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: vce
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: vcn
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: wafl
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/asic_reg: xgmi
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atom-bits.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atom-bits.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atom-names.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atom-names.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atom-types.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atom-types.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atombios.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atombios.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atomfirmware.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atomfirmware.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atomfirmwareid.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/atomfirmwareid.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/beige_goby_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/beige_goby_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/cgs_common.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/cgs_common.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/cik_structs.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/cik_structs.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/cyan_skillfish_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/cyan_skillfish_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/dimgrey_cavefish_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/dimgrey_cavefish_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/discovery.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/discovery.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/displayobject.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/displayobject.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/dm_pp_interface.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/dm_pp_interface.h differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include: ivsrcid
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/kgd_kfd_interface.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/kgd_kfd_interface.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/kgd_pp_interface.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/kgd_pp_interface.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/mes_api_def.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/mes_api_def.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/mes_v11_api_def.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/mes_v11_api_def.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/navi10_enum.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/navi10_enum.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/navi10_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/navi10_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/navi12_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/navi12_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/navi14_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/navi14_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/pptable.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/pptable.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/renoir_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/renoir_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/sienna_cichlid_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/sienna_cichlid_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/soc15_hw_ip.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/soc15_hw_ip.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/soc15_ih_clientid.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/soc15_ih_clientid.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/soc21_enum.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/soc21_enum.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/v10_structs.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/v10_structs.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/v11_structs.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/v11_structs.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/v9_structs.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/v9_structs.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vangogh_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vangogh_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vega10_enum.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vega10_enum.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vega10_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vega10_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vega20_ip_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vega20_ip_offset.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vi_structs.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/vi_structs.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/yellow_carp_offset.h and new_kernel/linux-5.19.9/drivers/gpu/drm/amd/include/yellow_carp_offset.h differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm/amd: pm
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: arm
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: armada
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: aspeed
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: ast
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: atmel-hlcdc
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: bridge
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: built-in.a
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: display
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_agpsupport.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_agpsupport.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_aperture.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_aperture.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_aperture.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_aperture.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_atomic_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic_state_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic_state_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_atomic_state_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic_uapi.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_atomic_uapi.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_atomic_uapi.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_auth.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_auth.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_auth.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_auth.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_blend.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_blend.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_blend.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_blend.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_bridge.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_bridge.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_bridge.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_bridge.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_bridge_connector.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_bridge_connector.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_bridge_connector.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_buddy.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_buddy.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_bufs.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_bufs.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_cache.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_cache.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_cache.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_cache.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_client.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_client.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_client.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_client_modeset.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_client_modeset.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_client_modeset.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_color_mgmt.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_color_mgmt.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_color_mgmt.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_color_mgmt.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_connector.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_connector.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_connector.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_connector.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_context.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_context.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_crtc_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc_helper_internal.h and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc_helper_internal.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc_internal.h and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_crtc_internal.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_damage_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_damage_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_damage_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_debugfs.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_debugfs.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_debugfs.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_debugfs_crc.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_debugfs_crc.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_debugfs_crc.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_displayid.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_displayid.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_displayid.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_displayid.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_dma.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_dma.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_drv.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_drv.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_drv.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_drv.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_dumb_buffers.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_dumb_buffers.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_dumb_buffers.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_dumb_buffers.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_edid.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_edid.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_edid.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_edid.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_edid_load.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_edid_load.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_edid_load.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_encoder.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_encoder.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_encoder.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_encoder.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_encoder_slave.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_encoder_slave.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_encoder_slave.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_fb_cma_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_fb_cma_helper.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_fb_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_fb_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_fb_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_file.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_file.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_file.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_file.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_flip_work.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_flip_work.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_flip_work.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_format_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_format_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_format_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_fourcc.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_fourcc.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_fourcc.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_fourcc.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_framebuffer.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_framebuffer.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_framebuffer.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_framebuffer.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_atomic_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_atomic_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_gem_atomic_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_cma_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_cma_helper.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_framebuffer_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_framebuffer_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_gem_framebuffer_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_shmem_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_shmem_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_gem_shmem_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_ttm_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_ttm_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_gem_ttm_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_vram_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_gem_vram_helper.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_hashtab.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_hashtab.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_internal.h and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_internal.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_ioc32.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_ioc32.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_ioc32.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_ioc32.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_ioctl.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_ioctl.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_ioctl.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_ioctl.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_irq.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_irq.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_kms_helper_common.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_kms_helper_common.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_kms_helper_common.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_lease.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_lease.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_lease.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_lease.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_legacy.h and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_legacy.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_legacy_misc.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_legacy_misc.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_lock.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_lock.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_managed.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_managed.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_managed.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_memory.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_memory.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_mipi_dbi.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_mipi_dbi.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_mipi_dsi.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_mipi_dsi.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_mm.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_mm.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_mm.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_mm.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_mode_config.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_mode_config.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_mode_config.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_mode_config.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_mode_object.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_mode_object.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_mode_object.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_mode_object.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_modes.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_modes.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_modes.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_modes.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_modeset_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_modeset_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_modeset_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_modeset_lock.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_modeset_lock.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_modeset_lock.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_modeset_lock.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_nomodeset.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_nomodeset.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_nomodeset.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_of.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_of.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_panel.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_panel.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_panel.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_panel_orientation_quirks.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_panel_orientation_quirks.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_panel_orientation_quirks.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_pci.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_pci.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_pci.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_plane.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_plane.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_plane.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_plane.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_plane_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_plane_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_plane_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_prime.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_prime.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_prime.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_prime.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_print.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_print.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_print.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_print.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_privacy_screen.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_privacy_screen.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_privacy_screen_x86.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_privacy_screen_x86.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_probe_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_probe_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_probe_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_property.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_property.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_property.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_property.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_rect.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_rect.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_rect.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_scatter.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_scatter.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_self_refresh_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_self_refresh_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_self_refresh_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_simple_kms_helper.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_simple_kms_helper.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_simple_kms_helper.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_syncobj.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_syncobj.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_syncobj.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_syncobj.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_sysfs.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_sysfs.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_sysfs.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_sysfs.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_trace.h and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_trace.h differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_trace_points.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_trace_points.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_trace_points.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_trace_points.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_vblank.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_vblank.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_vblank.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_vblank.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_vblank_work.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_vblank_work.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_vblank_work.o
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_vm.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_vm.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_vma_manager.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_vma_manager.c differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_vma_manager.o and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_vma_manager.o differ
+Files copy_kernel/linux-5.19.9/drivers/gpu/drm/drm_writeback.c and new_kernel/linux-5.19.9/drivers/gpu/drm/drm_writeback.c differ
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: drm_writeback.o
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: etnaviv
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: exynos
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: fsl-dcu
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: gma500
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: gud
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: hisilicon
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: hyperv
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: i2c
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: i810
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: i915
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: imx
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: ingenic
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: kmb
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: lib
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: lima
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: mcde
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: mediatek
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: meson
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: mga
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: mgag200
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: modules.order
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: msm
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: mxsfb
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: nouveau
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: omapdrm
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: panel
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: panfrost
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: pl111
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: qxl
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: r128
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: radeon
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: rcar-du
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: rockchip
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: savage
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: scheduler
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: selftests
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: shmobile
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: sis
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: solomon
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: sprd
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: sti
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: stm
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: sun4i
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: tdfx
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: tegra
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: tidss
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: tilcdc
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: tiny
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: ttm
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: tve200
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: udl
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: v3d
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: vboxvideo
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: vc4
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: vgem
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: via
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: virtio
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: vkms
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: vmwgfx
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: xen
+Only in new_kernel/linux-5.19.9/drivers/gpu/drm: xlnx
+Only in new_kernel/linux-5.19.9/drivers/gpu: host1x
+Only in new_kernel/linux-5.19.9/drivers/gpu: ipu-v3
+Only in new_kernel/linux-5.19.9/drivers/gpu: trace
+Only in new_kernel/linux-5.19.9/drivers/gpu: vga
+Only in new_kernel/linux-5.19.9/drivers: hte
+Only in new_kernel/linux-5.19.9/drivers: hv
+Only in new_kernel/linux-5.19.9/drivers: hwspinlock
+Only in new_kernel/linux-5.19.9/drivers: hwtracing
+Only in new_kernel/linux-5.19.9/drivers: i2c
+Only in new_kernel/linux-5.19.9/drivers: idle
+Only in new_kernel/linux-5.19.9/drivers: iio
+Only in new_kernel/linux-5.19.9/drivers: iommu
+Only in new_kernel/linux-5.19.9/drivers: ipack
+Only in new_kernel/linux-5.19.9/drivers: macintosh
+Only in new_kernel/linux-5.19.9/drivers: mailbox
+Only in new_kernel/linux-5.19.9/drivers: message
+Only in new_kernel/linux-5.19.9/drivers: mmc
+Only in new_kernel/linux-5.19.9/drivers: net
+Only in new_kernel/linux-5.19.9/drivers: ntb
+Only in new_kernel/linux-5.19.9/drivers: nubus
+Only in new_kernel/linux-5.19.9/drivers: nvdimm
+Only in new_kernel/linux-5.19.9/drivers: nvme
+Only in new_kernel/linux-5.19.9/drivers: of
+Only in new_kernel/linux-5.19.9/drivers: opp
+Only in new_kernel/linux-5.19.9/drivers: parisc
+Only in new_kernel/linux-5.19.9/drivers: parport
+Only in new_kernel/linux-5.19.9/drivers: perf
+Only in new_kernel/linux-5.19.9/drivers: phy
+Only in new_kernel/linux-5.19.9/drivers: platform
+Only in new_kernel/linux-5.19.9/drivers: powercap
+Only in new_kernel/linux-5.19.9/drivers: pps
+Only in new_kernel/linux-5.19.9/drivers: ptp
+Only in new_kernel/linux-5.19.9/drivers: rapidio
+Only in new_kernel/linux-5.19.9/drivers: regulator
+Only in new_kernel/linux-5.19.9/drivers: remoteproc
+Only in new_kernel/linux-5.19.9/drivers: reset
+Only in new_kernel/linux-5.19.9/drivers: sbus
+Only in new_kernel/linux-5.19.9/drivers: siox
+Only in new_kernel/linux-5.19.9/drivers: slimbus
+Only in new_kernel/linux-5.19.9/drivers: soc
+Only in new_kernel/linux-5.19.9/drivers: spmi
+Only in new_kernel/linux-5.19.9/drivers: thermal
+Only in new_kernel/linux-5.19.9/drivers: thunderbolt
+Only in new_kernel/linux-5.19.9/drivers: tty
+Only in new_kernel/linux-5.19.9/drivers: uio
+Only in new_kernel/linux-5.19.9/drivers: vfio
+Only in new_kernel/linux-5.19.9/drivers: vhost
+Only in new_kernel/linux-5.19.9/drivers: virt
+Only in new_kernel/linux-5.19.9/drivers: vlynq
+Only in new_kernel/linux-5.19.9/drivers: watchdog
+Only in new_kernel/linux-5.19.9/drivers: xen
+Only in new_kernel/linux-5.19.9/: include
+Only in new_kernel/linux-5.19.9/: ipc
+Only in new_kernel/linux-5.19.9/: kernel
+Only in new_kernel/linux-5.19.9/: kernel_2d_memcpy_syscall
+Only in new_kernel/linux-5.19.9/: lib
+Only in new_kernel/linux-5.19.9/: mm
+Only in copy_kernel/linux-5.19.9/: modules-only.symvers
+Files copy_kernel/linux-5.19.9/modules.builtin and new_kernel/linux-5.19.9/modules.builtin differ
+Files copy_kernel/linux-5.19.9/modules.builtin.modinfo and new_kernel/linux-5.19.9/modules.builtin.modinfo differ
+Files copy_kernel/linux-5.19.9/modules.order and new_kernel/linux-5.19.9/modules.order differ
+Only in new_kernel/linux-5.19.9/: net
+Only in new_kernel/linux-5.19.9/: samples
+Only in new_kernel/linux-5.19.9/: sound
+Only in new_kernel/linux-5.19.9/: usr
+Only in new_kernel/linux-5.19.9/: virt
+Only in copy_kernel/linux-5.19.9/: vmlinux
+Only in copy_kernel/linux-5.19.9/: vmlinux.o
+Only in copy_kernel/linux-5.19.9/: vmlinux.symvers
