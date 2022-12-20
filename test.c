@@ -1,103 +1,68 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <string.h>
-#include <time.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <signal.h>
-#include <sys/ipc.h>
-#include <sys/msg.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<pthread.h>
+#include<semaphore.h>
+#include<unistd.h>
 
-int main(){
-    /*Connect to FIFO*/
-    int file_add;
+sem_t forks[5];
 
-    char fifo_add[20] = "helloo";
-    mkfifo(fifo_add, 0666);
+void eat(int phil_no){
+    printf("Philosopher %d is eating.\n",phil_no);
+    sleep(4);
+    printf("Philosopher %d has finished eating.\n",phil_no);
+}
 
-    /*To generate an array (of size 50) of strings (of length 4)*/ 
-    int i=0, j=0;
+void * philosopher(void * num){
+	int phil_no=*(int *)num;
 
-    int r_key;
-	char str_2[5];
-	char arr[50][5];
+    int fork_1, fork_2;
 
-	for (i = 0; i < 50; i++)
-	{
-		for (j = 0; j < 4; j++)
-		{
-			r_key = rand()%26 + 65;
-			str_2[j] = (char)(r_key);
-		}   
-		str_2[5] = '\0';
-		strcpy(arr[i], str_2);
+    if (phil_no == 4){
+        fork_1 = 0;
+        fork_2 = 4;
+    }
+    else{
+        fork_1 = phil_no;
+        fork_2 = phil_no + 1;
+    }
+
+    int i;
+
+    for (i=0; i<10; i++){
+        sem_wait(&forks[fork_1]);
+        printf("Philosopher %d has picked up fork %d\n",phil_no,fork_1);
+        sem_wait(&forks[fork_2]);
+        printf("Philosopher %d has picked up fork %d\n",phil_no,fork_2);
+
+        eat(phil_no);
+
+        sem_post(&forks[fork_2]);
+        printf("Philosopher %d has put down fork %d\n",phil_no,fork_2);
+        sem_post(&forks[fork_1]);
+        printf("Philosopher %d has put down fork %d\n",phil_no,fork_1);
+    }
+
+    printf("Philosopher %d is full.\n",phil_no);
+}
+
+int main()
+{
+	int i,a[5];
+	pthread_t t_id[5];
+	
+	for(i=0;i<5;i++){
+		sem_init(&forks[i],0,1);
+    }
+
+    printf("Dinner has commenced\n");
+		
+	for(i=0;i<5;i++){
+		pthread_create(&t_id[i],NULL,philosopher,(void *)&i);
 	}
 
-    /*Prints the contents of the array*/
-    printf("P1: The contents of the array are\n");
-    for (i = 0; i<50; i++){
-        printf("%s\n", arr[i]);
+	for(i=0;i<5;i++){
+		pthread_join(t_id[i],NULL);
     }
 
-    
-
-    /*Using FIFO*/
-    int first_id = 0;
-
-    
-    while (1){
-        char str[24]="";
-
-        int flag;
-        if (first_id<10){
-            flag = 1;
-        }
-        else{
-            flag = 2;
-        }
-
-        char char_flag[4];
-        sprintf(char_flag, "%d", flag);
-        strcat(str, char_flag);
-
-        char char_id[4];
-        sprintf(char_id, "%d", first_id);
-        strcat(str, char_id);
-
-        strcat(str, arr[first_id]);
-        strcat(str, arr[first_id + 1]);
-        strcat(str, arr[first_id + 2]);
-        strcat(str, arr[first_id + 3]);
-        strcat(str, arr[first_id + 4]);
-        
-        file_add = open(fifo_add, O_WRONLY);
-        write(file_add, str, sizeof(str));
-        close(file_add);
-        
-        printf("P1: Sent with index %i\n", first_id);
-
-
-
-        char new_id[5];
-        int file_add = open(fifo_add, O_RDONLY);
-        read(file_add, new_id, 3);
-        close(file_add);
-
-        first_id = atoi(new_id);
-        first_id++;
-        printf("P1: Recieved index %i\n", first_id);
-
-        if (first_id>48){
-            break;
-        }
-        first_id++;        
-        
-    }
-
-
-    return 0;
+    printf("Dinner has been concluded. All Philosophers have eaten and there was no deadlock.\n");
 }
