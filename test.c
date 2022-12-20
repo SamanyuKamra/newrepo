@@ -1,83 +1,96 @@
-#include <stdio.h>
-#include <semaphore.h>
-#include <stdlib.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdbool.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<pthread.h>
+#include<semaphore.h>
 
-sem_t sauce[2];
 sem_t forks[5];
-pthread_mutex_t waiter;
+sem_t bowl;
 
-int getBowl(){
-    int x = 0;
-    while(x<2){
-        int semTemp = -1;
-        int error = sem_getvalue(&sauce[x] , &semTemp);
-        if(semTemp == 1)
-        {
-            sem_wait(&sauce[x]);
-            return (x);
-        }
-        x++;
-    }
+void eat(int n){
+    printf("Thread %d is eating now\n",n);
+}
+
+void take_left(int n){
+
+    printf("Thread %d is trying to pick left fork\n",n);
+    sem_wait(&forks[n]);
+    printf("Thread %d picks the left fork\n",n);
+}
+
+void take_right(int n){
+
+    printf("Thread %d is trying to pick right fork\n",n);
+    sem_wait(&forks[(n+1)%5]);
+    printf("Thread %d picks the right fork\n",n);
 
 }
 
-void eat(int philosphers, int bowls)
-{
-    printf("Philosopher %d eating in Bowl %d with forks %d and %d\n", philosphers,bowls, philosphers, (philosphers + 1) % 5);
-    usleep(500000);
-    sem_post(&forks[philosphers]);
-    sem_post(&forks[(philosphers + 1) % 5]);
-    sem_post(&sauce[bowls]);
 
-}
-void getforks(int philosphers)
-{
-    sem_wait(&forks[philosphers]);
-    sem_wait(&forks[(philosphers + 1) % 5]);
+void * collect_fork(void * n){
 
-}
-void *philospherThinking(void *i)
-{
-    int philosphers = *((int *)i);
-    while(true)
+    while (1)
     {
-        pthread_mutex_lock(&waiter);
-        getforks(philosphers);
-        int bowls = getBowl();
-        pthread_mutex_unlock(&waiter);
-        eat(philosphers, bowls);
+        int thread=*(int *)n;
+        int val;
+
+        if(thread==4){
+
+            take_right(thread);
+            take_left(thread);
+
+        }else{
+
+            take_left(thread);
+            take_right(thread);
+        }
+
+        sem_getvalue(&bowl,&val);
+        printf("\nValue of bowl semaphore :- %d\n",val);
+
+        sem_wait(&bowl);
+        printf("Thread %d has picked bowl\n",thread);
+
+        eat(thread);
+        sleep(1);
+
+        printf("Thread %d has finished eating\n",thread);
+
+        sem_post(&bowl);
+        printf("Thread %d has left the bowl\n",thread);
+
+        sem_getvalue(&bowl,&val);
+        printf("\nValue of bowl semaphore :- %d\n",val);
+
+        sem_post(&forks[(thread+1)%5]);
+        printf("Thread %d left right fork\n",thread);
+        sem_post(&forks[(thread)]);
+        printf("Thread %d leaves left fork\n",thread);
+        
 
     }
+     
 }
+
 int main(){
-    pthread_t DP[5];
-    int i[5] = {0,1,2,3,4};
-    pthread_mutex_init(&waiter, NULL);
-    int j = 0;
-    while(j<5) //Forks
-    {
-        sem_init(&forks[j],0,1);
-        j++;
-    }
-    int k = 0;
-    while (k<2)
-    {
-        sem_init(&sauce[k],0,1);
-        k++;
-    }
-    for (int a = 0; a < 5; a++)
-    {
-        if (pthread_create(&DP[a], NULL, philospherThinking, &i[a]) == -1)
-        {
-            printf("error creating pthread\n");
-        }
-    }
-    for(int a = 0; a<5;a++){
-        pthread_join(DP[a], NULL);
-    }
-    return 0;
 
+    pthread_t thread[5];
+    int thread_no[5];
+
+    for(int i = 0 ; i<5 ; i++)
+        sem_init(&forks[i],0,1);
+    
+    sem_init(&bowl,0,2);
+
+    for(int i = 0 ; i<5 ; i++){
+
+        thread_no[i]=i;
+        pthread_create(&thread[i],NULL,collect_fork,(void *)&thread_no[i]);
+
+    }
+
+    for(int i=0;i<5;i++)
+        pthread_join(thread[i],NULL);
+
+    return 0;
 }
