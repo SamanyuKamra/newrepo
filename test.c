@@ -1,63 +1,103 @@
 #include <stdio.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 #include <string.h>
+#include <time.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include <signal.h>
+#include <sys/ipc.h>
+#include <sys/msg.h>
 
-int main()
-{
-    int fd;
+int main(){
+    /*Connect to FIFO*/
+    int file_add;
 
-    char * myfifo = "/tmp/myfifo";
+    char fifo_add[20] = "helloo";
+    mkfifo(fifo_add, 0666);
 
-    mkfifo(myfifo, 0666);
+    /*To generate an array (of size 50) of strings (of length 4)*/ 
+    int i=0, j=0;
 
-    char arr1[80], arr2[80];
+    int r_key;
+	char str_2[5];
+	char arr[50][5];
 
-    char arr[51][10];
+	for (i = 0; i < 50; i++)
+	{
+		for (j = 0; j < 4; j++)
+		{
+			r_key = rand()%26 + 65;
+			str_2[j] = (char)(r_key);
+		}   
+		str_2[5] = '\0';
+		strcpy(arr[i], str_2);
+	}
 
-    for(int i = 1; i<51 ; i++){
-
-        char s[10] = "string";
-        char no[5];
-        sprintf(no,"%d",i);
-        strcat(s,no);
-        strcpy(arr[i],s);
+    /*Prints the contents of the array*/
+    printf("P1: The contents of the array are\n");
+    for (i = 0; i<50; i++){
+        printf("%s\n", arr[i]);
     }
 
-    int curr = 1;
-    char receive[5];
-    char send[100];
+    
 
-    while (curr < 50)
-    {
-        fd = open(myfifo, O_WRONLY);
+    /*Using FIFO*/
+    int first_id = 0;
 
-        strcat(arr[curr],"\n");
+    
+    while (1){
+        char str[24]="";
 
-        for(int i = curr+1 ; i<= curr+4 ; i++){
+        int flag;
+        if (first_id<10){
+            flag = 1;
+        }
+        else{
+            flag = 2;
+        }
 
-            strcat(arr[curr],arr[i]);
-            strcat(arr[curr],"\n");	
+        char char_flag[4];
+        sprintf(char_flag, "%d", flag);
+        strcat(str, char_flag);
 
-	    }
-        printf("\nMessage has been sent to p2\n");
-        strcpy(send,arr[curr]);
+        char char_id[4];
+        sprintf(char_id, "%d", first_id);
+        strcat(str, char_id);
 
-        write(fd, send, strlen(send)+1);
-        close(fd);
+        strcat(str, arr[first_id]);
+        strcat(str, arr[first_id + 1]);
+        strcat(str, arr[first_id + 2]);
+        strcat(str, arr[first_id + 3]);
+        strcat(str, arr[first_id + 4]);
+        
+        file_add = open(fifo_add, O_WRONLY);
+        write(file_add, str, sizeof(str));
+        close(file_add);
+        
+        printf("P1: Sent with index %i\n", first_id);
 
-        fd = open(myfifo, O_RDONLY);
 
-        read(fd, receive, sizeof(receive));
-        curr = atoi(receive);
 
-        printf("\nIndex received from P2 %d\n", curr);
+        char new_id[5];
+        int file_add = open(fifo_add, O_RDONLY);
+        read(file_add, new_id, 3);
+        close(file_add);
 
-        close(fd);
+        first_id = atoi(new_id);
+        first_id++;
+        printf("P1: Recieved index %i\n", first_id);
 
+        if (first_id>48){
+            break;
+        }
+        first_id++;        
+        
     }
+
+
     return 0;
 }
