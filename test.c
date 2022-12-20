@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 sem_t sauce[2];
 sem_t forks[5];
@@ -10,7 +11,7 @@ pthread_mutex_t waiter;
 
 int getBowl(){
     int x = 0;
-    while(i<2){
+    while(x<2){
         int semTemp = -1;
         int error = sem_getvalue(&sauce[x] , &semTemp);
         if(semTemp == 1)
@@ -34,7 +35,7 @@ void eat(int philosphers, int bowls)
 }
 void getforks(int philosphers)
 {
-    sem_wait(&fork[philosphers]);
+    sem_wait(&forks[philosphers]);
     sem_wait(&forks[(philosphers + 1) % 5]);
 
 }
