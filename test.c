@@ -1,96 +1,110 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<pthread.h>
-#include<semaphore.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <time.h>
 
-sem_t forks[5];
-sem_t bowl;
+#define NAME "/tmp/sock"
 
-void eat(int n){
-    printf("Thread %d is eating now\n",n);
-}
+struct myData
+{
+    char stringArray[5][5];
+    int indexArray[5];
+    int Index;
+};
 
-void take_left(int n){
-
-    printf("Thread %d is trying to pick left fork\n",n);
-    sem_wait(&forks[n]);
-    printf("Thread %d picks the left fork\n",n);
-}
-
-void take_right(int n){
-
-    printf("Thread %d is trying to pick right fork\n",n);
-    sem_wait(&forks[(n+1)%5]);
-    printf("Thread %d picks the right fork\n",n);
-
-}
-
-
-void * collect_fork(void * n){
-
-    while (1)
+void getCharArrays(int Index, char toBeSent[5][5], char stringArray[50][5], int indexArr[])
+{
+    int j = 0;
+    for (int i = Index; i < Index + 5; i++)
     {
-        int thread=*(int *)n;
-        int val;
-
-        if(thread==4){
-
-            take_right(thread);
-            take_left(thread);
-
-        }else{
-
-            take_left(thread);
-            take_right(thread);
-        }
-
-        sem_getvalue(&bowl,&val);
-        printf("\nValue of bowl semaphore :- %d\n",val);
-
-        sem_wait(&bowl);
-        printf("Thread %d has picked bowl\n",thread);
-
-        eat(thread);
-        sleep(1);
-
-        printf("Thread %d has finished eating\n",thread);
-
-        sem_post(&bowl);
-        printf("Thread %d has left the bowl\n",thread);
-
-        sem_getvalue(&bowl,&val);
-        printf("\nValue of bowl semaphore :- %d\n",val);
-
-        sem_post(&forks[(thread+1)%5]);
-        printf("Thread %d left right fork\n",thread);
-        sem_post(&forks[(thread)]);
-        printf("Thread %d leaves left fork\n",thread);
-        
-
+        strcpy(toBeSent[j], stringArray[i]);
+        indexArr[j] = i;
+        j++;
     }
-     
+}
+void printCharArray(char toBeSent[5][5])
+{
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%s\n", toBeSent[i]);
+    }
+}
+void randomStringGenerator(char stringArray[50][5])
+{
+    srand(time(NULL));
+    for (int i = 0; i < 50; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            stringArray[i][j] = rand() % 26 + 65;
+        }
+    }
+}
+struct myData messageStructure(char stringArray[50][5], char toBeSent[5][5], int indexArray[5], int Index)
+{
+    struct myData data;
+    getCharArrays(Index, toBeSent, stringArray, indexArray);
+    memcpy(data.indexArray, indexArray, sizeof(int) * 5);
+    memcpy(data.stringArray, stringArray, sizeof(char) * 25);
+    return (data);
 }
 
-int main(){
+int main(int argc, char const *argv[])
+{
+    char stringArray[50][5] = {{0}};
+    randomStringGenerator(stringArray);
+    char toBeSent[5][5];
+    int indexArr[5];
+    int Index;
+    int sock, msgsock;
+    struct sockaddr_un server;
 
-    pthread_t thread[5];
-    int thread_no[5];
+    sock = socket(AF_UNIX, SOCK_STREAM, 0);
+    if (sock < 0)
+    {
+        printf("Socket making failed\n");
+        exit(1);
+    }
+    server.sun_family = AF_UNIX;
+    strcpy(server.sun_path, NAME);
 
-    for(int i = 0 ; i<5 ; i++)
-        sem_init(&forks[i],0,1);
-    
-    sem_init(&bowl,0,2);
+    if (bind(sock, (struct sockaddr *)&server, sizeof(struct sockaddr_un)))
+    {
+        perror("binding stream socket");
+        unlink(NAME);
+        exit(1);
+    }
+    int option = 1;
+    listen(sock, 5);
+    msgsock = accept(sock, 0, 0);
+    setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(option));
+    if (msgsock == -1)
+        printf("Socket error\n");
+    else
+    {
 
-    for(int i = 0 ; i<5 ; i++){
-
-        thread_no[i]=i;
-        pthread_create(&thread[i],NULL,collect_fork,(void *)&thread_no[i]);
+        struct myData data1 = messageStructure(stringArray, toBeSent, indexArr, 5);
+        write(msgsock, (void *)&data1, 52);
+        int receivedIndex;
+        read(msgsock,&receivedIndex,sizeof(int));
+        printf("The recieved index from P2 is %d\n",receivedIndex);
+        struct myData data2 = messageStructure(stringArray, toBeSent, indexArr, receivedIndex+1);
+        write(msgsock, (void *)&data2, 52);
+        read(msgsock,&receivedIndex,sizeof(int));
+        printf("The recieved index from P2 is %d\n",receivedIndex);
 
     }
 
-    for(int i=0;i<5;i++)
-        pthread_join(thread[i],NULL);
+    close(msgsock);
 
-    return 0;
+    unlink(NAME);
+    close(sock);
+    return (0);
 }
