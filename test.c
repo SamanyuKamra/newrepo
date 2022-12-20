@@ -4,34 +4,19 @@
 #include <pthread.h>
 #include <unistd.h>
 sem_t forks[5];
-sem_t sauceBowls[4];
 pthread_mutex_t waiter;
 void getForks(int philosopherArrived)
 {
     sem_wait(&forks[philosopherArrived]);
     sem_wait(&forks[(philosopherArrived + 1) % 5]);
 }
-int getBowl()
+void eat(int philosopherArrived)
 {
-    for (int i = 0; i < 4; i++)
-    {
-        int semValue = -1;
-        int err = sem_getvalue(&sauceBowls[i], &semValue);
-        if (semValue == 1)
-        {
-            sem_wait(&sauceBowls[i]);
-            return (i);
-        }
-    }
-}
-void eat(int philosopherArrived, int bowlAcquired)
-{
-    printf("Philosopher %d eating in Bowl %d with forks %d and %d\n", philosopherArrived,
-           bowlAcquired, philosopherArrived, (philosopherArrived + 1) % 5);
+    printf("Philosopher %d eating with forks %d and %d\n", philosopherArrived,
+           philosopherArrived, (philosopherArrived + 1) % 5);
     usleep(500000);
     sem_post(&forks[philosopherArrived]);
     sem_post(&forks[(philosopherArrived + 1) % 5]);
-    sem_post(&sauceBowls[bowlAcquired]);
 }
 void *philosopherAction(void *philosopherIndex)
 {
@@ -40,9 +25,8 @@ void *philosopherAction(void *philosopherIndex)
     {
         pthread_mutex_lock(&waiter);
         getForks(philosopherArrived);
-        int acquiredBowl = getBowl();
         pthread_mutex_unlock(&waiter);
-        eat(philosopherArrived, acquiredBowl);
+        eat(philosopherArrived);
     }
 }
 int main()
@@ -54,11 +38,6 @@ int main()
     for (int i = 0; i < 5; i++)
     {
         sem_init(&forks[i], 0, 1);
-    }
-    //creating bowls
-    for (int i = 0; i < 4; i++)
-    {
-        sem_init(&sauceBowls[i], 0, 1);
     }
     //creating philosophers as threads
     for (int i = 0; i < 5; i++)
