@@ -80,7 +80,7 @@ int main(){
     for(int i = 0 ; i<5 ; i++)
         sem_init(&forks[i],0,1);
     
-    sem_init(&bowl,0,2);
+    sem_init(&bowl,0,4);
 
     for(int i = 0 ; i<5 ; i++){
 
