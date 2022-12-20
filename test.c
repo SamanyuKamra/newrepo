@@ -44,7 +44,7 @@ void * collect_fork(void * n){
         }
 
         eat(thread);
-        sleep(2000);
+        sleep(2);
         printf("Thread %d has finished eating\n",thread);
         
         sem_post(&forks[(thread+1)%5]);
