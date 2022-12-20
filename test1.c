@@ -1,53 +1,70 @@
-
-#include <stdio.h>
+#include <sys/types.h>
 #include <sys/socket.h>
-#include <arpa/inet.h>
-#include <string.h>
+#include <sys/un.h>
+#include <stdio.h>
 #include <unistd.h>
-
-#define PORT 8080
-
-int main()
+#include <string.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <time.h>
+struct myData
 {
-	int sock = 0, valread;
-	struct sockaddr_in serv_addr;
+    char stringArray[5][5];
+    int indexArray[5];
+    int Index;
+};
+void printCharArray(char toBeSent[5][5]){
+    printf("The strings received from P1: \n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%s ",toBeSent[i]);
+    }
+    printf("\n");
+}
+void printIndexArray(int toBeSent[5]){
+    printf("The string index received from P1: \n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%d ",toBeSent[i]);
+    }
+    printf("\n");
+}
 
-	char strings[1024] = {0};
-	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-	{
-		printf("\n Socket creation error \n");
-		return -1;
-	}
+int main(int argc, char const *argv[])
+{
+    int Index;
+    int sock;
+    struct sockaddr_un server;
 
-	serv_addr.sin_family = AF_INET;
-	serv_addr.sin_port = htons(PORT);
-	
-	// Convert IPv4 and IPv6 addresses from text to binary form
-	if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0)
-	{
-		printf("\nInvalid address/ Address not supported \n");
-		return -1;
-	}
+    sock = socket(AF_UNIX, SOCK_STREAM, 0);
 
-	if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
-	{
-		printf("\nConnection Failed \n");
-		return -1;
-	}
+    if (sock < 0)
+    {
+        perror("opening stream socket");
+        exit(1);
+    }
+    server.sun_family = AF_UNIX;
+    strcpy(server.sun_path, "/tmp/sock");
 
-	int curr = 1;
-	while(curr < 50){
+    if (connect(sock, (struct sockaddr *)&server, sizeof(struct sockaddr_un)) < 0)
+    {
+        close(sock);
+        perror("connecting stream socket");
+        exit(1);
+    }
+    struct myData data1;
+    read(sock,(void*)&data1,52);
+    printCharArray(data1.stringArray);
+    printIndexArray(data1.indexArray);
+    Index = data1.indexArray[4];
+    write(sock,&Index,sizeof(int));
 
-		valread = read( sock , strings, 1024);
-		printf("Stirngs received from p1 :- \n");
-		printf("%s\n",strings );
-		curr+=5;
-		char ind[5];
-		sprintf(ind,"%d",curr);
-		send(sock , ind , strlen(ind) , 0 );
-		printf("Highest index sent from p2 to p1\n");
-		
-
-	}
-	return 0;
+    read(sock,(void*)&data1,52);
+    printCharArray(data1.stringArray);
+    printIndexArray(data1.indexArray);
+    Index = data1.indexArray[4];
+    write(sock,&Index,sizeof(int));
+    close(sock);
+    return (0);
 }
