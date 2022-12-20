@@ -1,110 +1,63 @@
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include <time.h>
+#include <stdlib.h>
 
-#define NAME "/tmp/sock"
-
-struct myData
+int main()
 {
-    char stringArray[5][5];
-    int indexArray[5];
-    int Index;
-};
+    int fd;
 
-void getCharArrays(int Index, char toBeSent[5][5], char stringArray[50][5], int indexArr[])
-{
-    int j = 0;
-    for (int i = Index; i < Index + 5; i++)
-    {
-        strcpy(toBeSent[j], stringArray[i]);
-        indexArr[j] = i;
-        j++;
-    }
-}
-void printCharArray(char toBeSent[5][5])
-{
-    for (int i = 0; i < 5; i++)
-    {
-        printf("%s\n", toBeSent[i]);
-    }
-}
-void randomStringGenerator(char stringArray[50][5])
-{
-    srand(time(NULL));
-    for (int i = 0; i < 50; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            stringArray[i][j] = rand() % 26 + 65;
-        }
-    }
-}
-struct myData messageStructure(char stringArray[50][5], char toBeSent[5][5], int indexArray[5], int Index)
-{
-    struct myData data;
-    getCharArrays(Index, toBeSent, stringArray, indexArray);
-    memcpy(data.indexArray, indexArray, sizeof(int) * 5);
-    memcpy(data.stringArray, stringArray, sizeof(char) * 25);
-    return (data);
-}
+    char * myfifo = "/tmp/myfifo";
 
-int main(int argc, char const *argv[])
-{
-    char stringArray[50][5] = {{0}};
-    randomStringGenerator(stringArray);
-    char toBeSent[5][5];
-    int indexArr[5];
-    int Index;
-    int sock, msgsock;
-    struct sockaddr_un server;
+    mkfifo(myfifo, 0666);
 
-    sock = socket(AF_UNIX, SOCK_STREAM, 0);
-    if (sock < 0)
-    {
-        printf("Socket making failed\n");
-        exit(1);
-    }
-    server.sun_family = AF_UNIX;
-    strcpy(server.sun_path, NAME);
+    char arr1[80], arr2[80];
 
-    if (bind(sock, (struct sockaddr *)&server, sizeof(struct sockaddr_un)))
-    {
-        perror("binding stream socket");
-        unlink(NAME);
-        exit(1);
-    }
-    int option = 1;
-    listen(sock, 5);
-    msgsock = accept(sock, 0, 0);
-    setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(option));
-    if (msgsock == -1)
-        printf("Socket error\n");
-    else
-    {
+    char arr[51][10];
 
-        struct myData data1 = messageStructure(stringArray, toBeSent, indexArr, 5);
-        write(msgsock, (void *)&data1, 52);
-        int receivedIndex;
-        read(msgsock,&receivedIndex,sizeof(int));
-        printf("The recieved index from P2 is %d\n",receivedIndex);
-        struct myData data2 = messageStructure(stringArray, toBeSent, indexArr, receivedIndex+1);
-        write(msgsock, (void *)&data2, 52);
-        read(msgsock,&receivedIndex,sizeof(int));
-        printf("The recieved index from P2 is %d\n",receivedIndex);
+    for(int i = 1; i<51 ; i++){
 
+        char s[10] = "string";
+        char no[5];
+        sprintf(no,"%d",i);
+        strcat(s,no);
+        strcpy(arr[i],s);
     }
 
-    close(msgsock);
+    int curr = 1;
+    char receive[5];
+    char send[100];
 
-    unlink(NAME);
-    close(sock);
-    return (0);
+    while (curr < 50)
+    {
+        fd = open(myfifo, O_WRONLY);
+
+        strcat(arr[curr],"\n");
+
+        for(int i = curr+1 ; i<= curr+4 ; i++){
+
+            strcat(arr[curr],arr[i]);
+            strcat(arr[curr],"\n");	
+
+	    }
+        printf("\nMessage has been sent to p2\n");
+        strcpy(send,arr[curr]);
+
+        write(fd, send, strlen(send)+1);
+        close(fd);
+
+        fd = open(myfifo, O_RDONLY);
+
+        read(fd, receive, sizeof(receive));
+        curr = atoi(receive);
+
+        printf("\nIndex received from P2 %d\n", curr);
+
+        close(fd);
+
+    }
+    return 0;
 }
