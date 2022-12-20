@@ -1,57 +1,79 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <semaphore.h>
-#include <pthread.h>
-#include <unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<pthread.h>
+#include<semaphore.h>
+
 sem_t forks[5];
-pthread_mutex_t waiter;
-void getForks(int philosopherArrived)
-{
-    sem_wait(&forks[philosopherArrived]);
-    sem_wait(&forks[(philosopherArrived + 1) % 5]);
+
+void eat(int n){
+    printf("Thread %d is eating now\n",n);
 }
-void eat(int philosopherArrived)
-{
-    printf("Philosopher %d eating with forks %d and %d\n", philosopherArrived,
-           philosopherArrived, (philosopherArrived + 1) % 5);
-    usleep(500000);
-    sem_post(&forks[philosopherArrived]);
-    sem_post(&forks[(philosopherArrived + 1) % 5]);
+
+void take_left(int n){
+
+    printf("Thread %d is trying to pick left fork\n",n);
+    sem_wait(&forks[n]);
+    printf("Thread %d picks the left fork\n",n);
 }
-void *philosopherAction(void *philosopherIndex)
-{
-    int philosopherArrived = *((int *)philosopherIndex);
+
+void take_right(int n){
+
+    printf("Thread %d is trying to pick right fork\n",n);
+    sem_wait(&forks[(n+1)%5]);
+    printf("Thread %d picks the right fork\n",n);
+
+}
+
+
+void * collect_fork(void * n){
+
     while (1)
     {
-        pthread_mutex_lock(&waiter);
-        getForks(philosopherArrived);
-        pthread_mutex_unlock(&waiter);
-        eat(philosopherArrived);
-    }
-}
-int main()
-{
-    pthread_t philosopher[5];
-    int philosopherIndex[5] ={0,1,2,3,4};
-    pthread_mutex_init(&waiter, NULL);
-    //creating forks
-    for (int i = 0; i < 5; i++)
-    {
-        sem_init(&forks[i], 0, 1);
-    }
-    //creating philosophers as threads
-    for (int i = 0; i < 5; i++)
-    {
-        if (pthread_create(&philosopher[i], NULL, philosopherAction, &philosopherIndex[i]) == -1)
-        {
-            printf("error creating pthread\n");
-        }
-    }
-    for (int i = 0; i < 5; i++)
-    {
+        int thread=*(int *)n;
 
-        pthread_join(philosopher[i], NULL);
+        if(thread==4){
+
+            take_right(thread);
+            take_left(thread);
+
+        }else{
+
+            take_left(thread);
+            take_right(thread);
+        }
+
+        eat(thread);
+        //sleep(2);
+        printf("Thread %d has finished eating\n",thread);
+        
+        sem_post(&forks[(thread+1)%5]);
+        printf("Thread %d left right fork\n",thread);
+        sem_post(&forks[(thread)]);
+        printf("Thread %d leaves left fork\n",thread);
+
     }
+    
+    
+}
+
+int main(){
+
+    pthread_t thread[5];
+    int thread_no[5];
+
+    for(int i = 0 ; i<5 ; i++)
+        sem_init(&forks[i],0,1);
+
+    for(int i = 0 ; i<5 ; i++){
+
+        thread_no[i]=i;
+        pthread_create(&thread[i],NULL,collect_fork,(void *)&thread_no[i]);
+
+    }
+
+    for(int i=0;i<5;i++)
+        pthread_join(thread[i],NULL);
 
     return 0;
 }
