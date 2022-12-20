@@ -66,6 +66,7 @@ int main(){
     while (k<2)
     {
         sem_init(&sauce[k],0,1);
+        k++;
     }
     for (int a = 0; a < 5; a++)
     {
