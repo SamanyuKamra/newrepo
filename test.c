@@ -5,7 +5,13 @@
 #include<pthread.h>
 
 sem_t forks[5];
+void eat(int phi)
+{
+    printf("Philosopher %d is eating.\n",phi);
+    sleep(3);
+    printf("Philosopher %d has finished eating.\n",phi);
 
+}
 
 
 void *getPhil(void * n)
@@ -41,13 +47,7 @@ void *getPhil(void * n)
     printf("Philosopher %d is full.\n",phi);
 
 }
-void eat(int phi)
-{
-    printf("Philosopher %d is eating.\n",phi);
-    sleep(3);
-    printf("Philosopher %d has finished eating.\n",phi);
 
-}
 int main()
 {
     int arr[5];
