@@ -1,68 +1,72 @@
 #include<stdio.h>
-#include<stdlib.h>
-#include<pthread.h>
 #include<semaphore.h>
 #include<unistd.h>
+#include<stdlib.h>
+#include<pthread.h>
 
 sem_t forks[5];
 
-void eat(int phil_no){
-    printf("Philosopher %d is eating.\n",phil_no);
-    sleep(4);
-    printf("Philosopher %d has finished eating.\n",phil_no);
-}
 
-void * philosopher(void * num){
-	int phil_no=*(int *)num;
 
-    int fork_1, fork_2;
-
-    if (phil_no == 4){
-        fork_1 = 0;
-        fork_2 = 4;
+void *getPhil(void * n)
+{
+    int phi = *(int *)n;
+    int f1;
+    int f2;
+    if(phi ==4)
+    {
+        f2 = 4;
+        f1 = 0;
     }
     else{
-        fork_1 = phil_no;
-        fork_2 = phil_no + 1;
+        f1 = phi;
+        f2 = phi + 1;
     }
 
-    int i;
+    for(int i =0;i<10;i++)
+    {
+        sem_wait(&forks[f1]);
+        printf("Philosopher %d has picked up fork %d\n",phi,f1);
+        sem_wait(&forks[f2]);
+        printf("Philosopher %d has picked up fork %d\n",phi,f2);
 
-    for (i=0; i<10; i++){
-        sem_wait(&forks[fork_1]);
-        printf("Philosopher %d has picked up fork %d\n",phil_no,fork_1);
-        sem_wait(&forks[fork_2]);
-        printf("Philosopher %d has picked up fork %d\n",phil_no,fork_2);
+        eat(phi);
 
-        eat(phil_no);
-
-        sem_post(&forks[fork_2]);
-        printf("Philosopher %d has put down fork %d\n",phil_no,fork_2);
-        sem_post(&forks[fork_1]);
-        printf("Philosopher %d has put down fork %d\n",phil_no,fork_1);
+        sem_post(&forks[f2]);
+        printf("Philosopher %d has put down fork %d\n",phi,f2);
+        sem_post(&forks[f1]);
+        printf("Philosopher %d has put down fork %d\n",phi,f1);
     }
 
-    printf("Philosopher %d is full.\n",phil_no);
+    printf("Philosopher %d is full.\n",phi);
+
 }
+void eat(int phi)
+{
+    printf("Philosopher %d is eating.\n",phi);
+    sleep(3);
+    printf("Philosopher %d has finished eating.\n",phi);
 
+}
 int main()
 {
-	int i,a[5];
-	pthread_t t_id[5];
-	
-	for(i=0;i<5;i++){
-		sem_init(&forks[i],0,1);
+    int arr[5];
+    pthread_t DP[5];
+    int j = 0;
+    while (j<5)
+    {
+        sem_init(&forks[j],0,1);
+        j++;
     }
-
     printf("Dinner has commenced\n");
-		
-	for(i=0;i<5;i++){
-		pthread_create(&t_id[i],NULL,philosopher,(void *)&i);
+    for(int x=0;x<5;x++){
+		pthread_create(&DP[x],NULL,getPhil,(void *)&x);
 	}
 
-	for(i=0;i<5;i++){
-		pthread_join(t_id[i],NULL);
+	for(int a=0;a<5;a++){
+		pthread_join(DP[a],NULL);
     }
 
     printf("Dinner has been concluded. All Philosophers have eaten and there was no deadlock.\n");
+    
 }
