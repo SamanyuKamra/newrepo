@@ -1,114 +1,76 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <sys/socket.h>
-#include <stdlib.h>
-#include <netinet/in.h>
-#include <string.h>
-#define PORT 8080
-int main(int argc, char const *argv[]){
-	int server_fd, new_socket;
-	struct sockaddr_in sock_addr;
-	int opt = 1;
-	int addrlen = sizeof(sock_addr);
-	char buffer[1024] = {0};
-	
-	// Creating socket file descriptor
-	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0){
-		perror("socket failed");
-		exit(EXIT_FAILURE);
-	}
-	
-	// Forcefully attaching socket to the port 8080
-	if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
-												&opt, sizeof(opt)))
-	{
-		perror("setsockopt");
-		exit(EXIT_FAILURE);
-	}
-	sock_addr.sin_family = AF_INET;
-	sock_addr.sin_addr.s_addr = INADDR_ANY;
-	sock_addr.sin_port = htons( PORT );
-	
-	// Forcefully attaching socket to the port 8080
-	if (bind(server_fd, (struct sockaddr *)&sock_addr,
-								sizeof(sock_addr))<0)
-	{
-		perror("bind failed");
-		exit(EXIT_FAILURE);
-	}
-	if (listen(server_fd, 3) < 0){
-		perror("listen");
-		exit(EXIT_FAILURE);
-	}
-	if ((new_socket = accept(server_fd, (struct sockaddr *)&sock_addr,
-					(socklen_t*)&addrlen))<0){
-		perror("accept");
-		exit(EXIT_FAILURE);
-	}
+#include<sys/shm.h>
+#include <semaphore.h>
+#include<time.h>
+#include<sys/stat.h>
+#include<sys/types.h>
+#include<fcntl.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<errno.h>
+#include<unistd.h>
+#include<sys/ipc.h>
 
-    /*To generate an array (of size 50) of strings (of length 4)*/ 
-    int i=0, j=0;
+struct timespec a1;
+void capture(char** s)
+{
+    while(strcmp(*s,"waiting")!=0){}
+}
+int min(int x, int y)
+{
+    if(x>y)
+    {
+        return y;
+    }
+    else{
+        return x;
+    }
+}
 
-    int r_key;
-	char str_2[5];
-	char arr[50][5];
+int main()
+{
+    clock_gettime(CLOCK_REALTIME,&a1);
+    int i = 0;
+    int j = 0;
 
-	for (i = 0; i < 50; i++){
-		for (j = 0; j < 4; j++){
-			r_key = rand()%26 + 65;
-			str_2[j] = (char)(r_key);
-		}   
-		str_2[5] = '\0';
-		strcpy(arr[i], str_2);
-	}
+    int random;
+    char str_2[5];
+    char arr[50][5];
 
-    /*Prints the contents of the array*/
+    for(i = 0; i<50; i++)
+    {
+        for(j=0; j<4; j++)
+        {
+            random = rand()%26 + 65;
+            str_2[j] = (char)(random);
+
+        }
+        str_2[5] = '\0';
+	    strcpy(arr[i], str_2);
+    }
     printf("P1: The contents of the array are\n");
     for (i = 0; i<50; i++){
         printf("%s\n", arr[i]);
     }
 
-	/*Socket communication*/
+    char* temp = (char*)malloc(sizeof(arr[0]));
+    key_t passwd = ftok("SharedMemory",50);
+    int id = shmget(passwd,1024,0666|IPC_CREAT);
+    temp = (char*) shmat(id,NULL,0);
 
-	int first_id = 0;
-
-	while(1){
-		char str[24]="";
-
-        int flag;
-        if (first_id<10){
-            flag = 1;
+    for(int a=0;a<50;)
+    {
+        int d = a;
+        while(d<min(a+5,50))
+        {
+            strcpy(temp,arr[d]);
+            capture(&temp);
+            d++;
         }
-        else{
-            flag = 2;
-        }
+        a=d;
+        printf("Maximum id received by p1: %d\n",a-1);
+    }
+    return 0;
 
-        char char_flag[20];
-        sprintf(char_flag, "%d", flag);
-        strcat(str, char_flag);
-
-        char char_id[20];
-        sprintf(char_id, "%d", first_id);
-        strcat(str, char_id);
-
-        strcat(str, arr[first_id]);
-        strcat(str, arr[first_id + 1]);
-        strcat(str, arr[first_id + 2]);
-        strcat(str, arr[first_id + 3]);
-        strcat(str, arr[first_id + 4]);
-
-		send(new_socket, str, strlen(str), 0);
-
-		char new_id[20];
-		read(new_socket, new_id, 20);
-
-		first_id = atoi(new_id);
-        first_id++;
-        printf("P1: Recieved index %i\n", first_id);
-
-        if (first_id>48){
-            break;
-        }
-        first_id++;  
-	}
 }
+					
