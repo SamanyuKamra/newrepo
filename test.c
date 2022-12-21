@@ -64,7 +64,7 @@ int main()
         while(d<min(a+5,50))
         {
             strcpy(temp,arr[d]);
-            capture(&temp);
+            while(strcmp(*&temp,"waiting")!=0){}
             d++;
         }
         a=d;
