@@ -1,95 +1,89 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <sys/socket.h>
-#include <string.h>
-#include <stdlib.h>
-#include <netinet/in.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<errno.h>
+#include<unistd.h>
+#include<sys/ipc.h>
+#include<sys/shm.h>
+#include <semaphore.h>
+#include<time.h>
+#include<sys/stat.h>
+#include<sys/types.h>
+#include<fcntl.h>
 
 
-#define PORT 8080
+#define num 50
+struct timespec a1;
+#define index 9
+
+int min(int x, int y)
+{
+    if(x>y)
+    {
+        return y;
+    }
+    else{
+        return x;
+    }
+}
+void leave(char** s)
+{
+    strcpy(*s,"");
+}
+void capture(char** s)
+{
+    while(strcmp(*s,"waiting")!=0){}
+}
 
 int main()
-{	
-	int server_fd, new_socket, valread;
-	struct sockaddr_in address;
-	int opt = 1;
-	
-	char arr[51][10];
+{
+    
+    clock_gettime(CLOCK_REALTIME,&a1);
+    char* arr[50];
+    int i;
+    for(i = 0;i<num;i++)
+    {
+        arr[i] = (char*)malloc((index)*sizeof(char));
+    }
 
-	for(int i = 1; i<51 ; i++){
-		char s[10] = "string";
-		char no[5];
-		sprintf(no,"%d",i);
-		strcat(s,no);
-		strcpy(arr[i],s);
-	
-	}	
-	
-	int addrlen = sizeof(address);
-	char ind[10] = {0};
-	char send_data[100];
-	
-	// Creating socket file descriptor
-	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
-	{
-		perror("socket failed");
-		exit(EXIT_FAILURE);
-	}
-	
-	// Forcefully attaching socket to the port 8080
-	if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt)))
-	{
-		perror("setsockopt");
-		exit(EXIT_FAILURE);
-	}
-	address.sin_family = AF_INET;
-	address.sin_addr.s_addr = INADDR_ANY;
-	address.sin_port = htons( PORT );
-	
-	// Forcefully attaching socket to the port 8080
-	if (bind(server_fd, (struct sockaddr *)&address, sizeof(address))<0)
-	{
-		perror("bind failed");
-		exit(EXIT_FAILURE);
-	}
+    for(int j = 0;j<num;j++)
+    {
+        int k;
+        if(j>=10)
+        {
+            arr[j][0] = '0'+j/10;
+            arr[j][1] = '0'+j%10;
+            arr[j][2] =' ';
+            k = 3;
+        }
+        else
+        {
+            arr[j][0] = '0' + j;
+            arr[j][1] = ' ';
+            k = 2;
+        }
+        while(k < index-2)
+        {
+            arr[j][k] = rand()%26 + 65;
+            k++
+        }
+        arr[j][index-1] = '\0';
+    }
+    char* temp = (char*)malloc(sizeof(arr[0]));
+    passwd_t passwd = ftok("SharedMemory",50);
+    int id = shmget(passwd,1024,0666|IPC_CREAT);
 
-	if (listen(server_fd, 3) < 0)
-	{
-		perror("listen");
-		exit(EXIT_FAILURE);
-	}
-
-	if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0)
-	{
-		perror("accept");
-		exit(EXIT_FAILURE);
-	}
-
-	int curr = 1;
-
-	while(curr<50){
-
-		strcat(arr[curr],"\n");
-
-		for(int i = curr+1 ; i<= curr+4 ; i++){
-
-			strcat(arr[curr],arr[i]);
-			strcat(arr[curr],"\n");	
-		}
-
-		strcpy(send_data, arr[curr]);
-		
-		send(new_socket , send_data , strlen(send_data) , 0 );
-
-		printf("Stirngs sent form p1\n");
-
-		valread = read( new_socket , ind, 10);
-		curr = atoi(ind);
-			
-		printf("Highest index returned form p2:-%d\n", curr);
-
-	}
-
-	return 0;
-
+    temp = (char*) shmat(id,NULL,0);
+    int a = 0;
+    for(a=0;a<num;)
+    {
+        while(a<min(a+5,num))
+        {
+            strcpy(temp,arr[a]);
+            capture(&temp);
+            a++
+        }
+        printf("MAX ID received by p1: %d\n",a-1);
+    }
+    return 0;
 }
