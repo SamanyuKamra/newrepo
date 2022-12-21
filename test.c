@@ -12,10 +12,7 @@
 #include<sys/ipc.h>
 
 struct timespec a1;
-void capture(char** s)
-{
-    while(strcmp(*s,"waiting")!=0){}
-}
+
 int min(int x, int y)
 {
     if(x>y)
