@@ -15,10 +15,11 @@
 int main(){
     /*Connect to FIFO*/
     int file_add;
+    struct timespec a1;
 
     char fifo_add[20] = "helloo";
     mkfifo(fifo_add, 0666);
-
+    clock_gettime(CLOCK_REALTIME,&a1);
     /*To generate an array (of size 50) of strings (of length 4)*/ 
     int i=0, j=0;
 
