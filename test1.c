@@ -12,11 +12,11 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main(){
     int file_add;
     struct timespec a2;
-    struct timespec a1;
     
     char fifo_add[20] = "helloo";
 
@@ -71,7 +71,7 @@ int main(){
         
     }
     clock_gettime(CLOCK_REALTIME,&a2);
-    printf("Exexution time = %f\n",((a2.tv_sec - a1.tv_sec)+(a2.tv_nsec - a1.tv_nsec))/1e9);
+    printf("Exexution time = %f\n",fabs(((a2.tv_sec - a1.tv_sec)+(a2.tv_nsec - a1.tv_nsec))/1e9));
 
     return 0;
 }
