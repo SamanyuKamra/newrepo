@@ -26,10 +26,7 @@ int min(int x, int y)
         return x;
     }
 }
-void leave(char** s)
-{
-    strcpy(*s,"waiting");
-}
+
 void capture(char** s)
 {
     while(strcmp(*s,"waiting")==0){}
@@ -49,7 +46,7 @@ int main()
         {
             capture(&temp);
             printf("received by p2 : %s\n",temp);
-            leave(&temp);
+            strcpy(*&temp,"waiting");
 
         }
     }
