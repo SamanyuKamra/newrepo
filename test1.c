@@ -30,11 +30,11 @@ int min(int x, int y)
 }
 void leave(char** s)
 {
-    strcpy(*s,"waiting");
+    strcpy(*s,"wait");
 }
 void capture(char** s)
 {
-    while(strcmp(*s,"waiting")==0){}
+    while(strcmp(*s,"wait")==0){}
 }
 
 int main()
@@ -44,7 +44,7 @@ int main()
     int id = shmget(passwd,1024,0666|IPC_CREAT);
     temp = (char*)shmat(id,NULL,0);
     int var = 0;
-    while(var<50){
+    while(var<num){
         int b = var;
         for(;b<min(var+5,num);b++){
             capture(&temp);
