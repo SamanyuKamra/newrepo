@@ -16,15 +16,11 @@
 
 #define index 9
 
-int min(int x, int y){
-    if(x>y)
-    {
-        return y;
-    }
-    else{
-        return x;
-    }
+int min(int a , int b){
+    if(a>b) return b;
+    else return a;
 }
+
 void leave(char** s)
 {
     strcpy(*s,"");
