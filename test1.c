@@ -1,53 +1,52 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<time.h>
-#include<sys/stat.h>
-#include<sys/types.h>
-#include<fcntl.h>
-#include<errno.h>
-#include<unistd.h>
-#include<sys/ipc.h>
-#include<sys/shm.h>
-#include <semaphore.h>
+#include <stdio.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <string.h>
+#include <unistd.h>
 
-#define len 8
-#define num 50
-#define semfile "semaphorefile"
+#define PORT 8080
 
+int main()
+{
+	int sock = 0, valread;
+	struct sockaddr_in serv_addr;
 
-void acquire(char** sem){
-    while(strcmp(*sem,"wait")==0){
-    }
-}
+	char strings[1024] = {0};
+	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+	{
+		printf("\n Socket creation error \n");
+		return -1;
+	}
 
-void release(char** sem){
-    strcpy(*sem,"wait");
-}
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_port = htons(PORT);
+	
+	// Convert IPv4 and IPv6 addresses from text to binary form
+	if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0)
+	{
+		printf("\nInvalid address/ Address not supported \n");
+		return -1;
+	}
 
-int min(int a , int b){
-    if(a>b) return b;
-    else return a;
-}
+	if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
+	{
+		printf("\nConnection Failed \n");
+		return -1;
+	}
 
+	int curr = 1;
+	while(curr < 50){
 
-int main(){
-    char* send=(char*)malloc((len)*sizeof(char));
-    key_t key = ftok("shmfile",50);
-    int shmid = shmget(key,1024,0666|IPC_CREAT);
+		valread = read( sock , strings, 1024);
+		printf("Stirngs received from p1 :- \n");
+		printf("%s\n",strings );
+		curr+=5;
+		char ind[5];
+		sprintf(ind,"%d",curr);
+		send(sock , ind , strlen(ind) , 0 );
+		printf("Highest index sent from p2 to p1\n");
+		
 
-    send = (char*)shmat(shmid,NULL,0);
-
-    int curr=0;
-    while(curr<num){
-        int i=curr;
-        for(;i<min(curr+5,num);i++){
-            acquire(&send);
-            printf("received by p2 : %s\n",send);
-            release(&send);
-        }
-        curr+=5;
-    }
-
-    return 0;
+	}
+	return 0;
 }
