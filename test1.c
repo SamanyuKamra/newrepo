@@ -1,81 +1,53 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <string.h>
-#define PORT 8080
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<time.h>
+#include<sys/stat.h>
+#include<sys/types.h>
+#include<fcntl.h>
+#include<errno.h>
+#include<unistd.h>
+#include<sys/ipc.h>
+#include<sys/shm.h>
+#include <semaphore.h>
 
-int main(int argc, char const *argv[])
-{
-	int sock = 0;
-	struct sockaddr_in serv_addr;
-	char buffer[1024] = {0};
-	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-	{
-		printf("\n Socket creation error \n");
-		return -1;
-	}
+#define len 8
+#define num 50
+#define semfile "semaphorefile"
 
-	serv_addr.sin_family = AF_INET;
-	serv_addr.sin_port = htons(PORT);
-	
-	// Convert IPv4 and IPv6 addresses from text to binary form
-	if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0)
-	{
-		printf("\nInvalid address/ Address not supported \n");
-		return -1;
-	}
 
-	if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
-	{
-		printf("\nConnection Failed \n");
-		return -1;
-	}
+void acquire(char** sem){
+    while(strcmp(*sem,"wait")==0){
+    }
+}
 
-	while (1){
-		char inp[2000];
+void release(char** sem){
+    strcpy(*sem,"wait");
+}
 
-		read(sock, inp, 2000);
+int min(int a , int b){
+    if(a>b) return b;
+    else return a;
+}
 
-		//Printing stuff
-        int counter;
 
-        char char_id[20];
-        int curr_index;
+int main(){
+    char* send=(char*)malloc((len)*sizeof(char));
+    key_t key = ftok("shmfile",50);
+    int shmid = shmget(key,1024,0666|IPC_CREAT);
 
-        if (inp[0]=='1'){
-            curr_index = inp[1] - '0';
-            counter = 2;
+    send = (char*)shmat(shmid,NULL,0);
+
+    int curr=0;
+    while(curr<num){
+        int i=curr;
+        for(;i<min(curr+5,num);i++){
+            acquire(&send);
+            printf("received by p2 : %s\n",send);
+            release(&send);
         }
-        else if (inp[0]=='2'){
-            curr_index = 10*(inp[1] - '0') + (inp[2] - '0');
-            counter = 3;
-        }
+        curr+=5;
+    }
 
-        printf("P2: Recieved current index %i\n", curr_index);
-        
-        int i, j;
-        for  (i = 0; i<5; i++){
-            printf("P2: Index %d: ",curr_index);
-            for (j = 0; j<4; j++){
-                printf("%c",inp[counter]);
-                counter++;
-            }
-            printf("\n");
-            curr_index++;
-        }
-
-        curr_index--;
-
-        char new_id[20];
-        sprintf(new_id, "%d", curr_index-1);
-
-		send(sock, new_id, 20, 0);
-        printf("P2: Sent current index %i\n", curr_index);
-
-        if (curr_index>48){
-            break;
-        }
-	}
-	return 0;
+    return 0;
 }
