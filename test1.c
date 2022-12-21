@@ -15,8 +15,7 @@
 #define num 50
 #define index 8
 #define file "sem"
-struct timespec a1;
-struct timespec a2;
+
 
 int min(int x, int y)
 {
@@ -30,15 +29,17 @@ int min(int x, int y)
 }
 void leave(char** s)
 {
-    strcpy(*s,"wait");
+    strcpy(*s,"waiting");
 }
 void capture(char** s)
 {
-    while(strcmp(*s,"wait")==0){}
+    while(strcmp(*s,"waiting")==0){}
 }
 
 int main()
 {
+    struct timespec a1;
+    struct timespec a2;
     char* temp = (char*)malloc((index)*sizeof(char));
     key_t passwd = ftok("SharedMemory",50);
     int id = shmget(passwd,1024,0666|IPC_CREAT);
