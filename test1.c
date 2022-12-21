@@ -40,9 +40,9 @@ void capture(char** s)
 int main()
 {
     char* temp = (char*)malloc((index)*sizeof(char));
-    passwd_t passwd = ftok("SharedMemory",50);
+    key_t passwd = ftok("SharedMemory",50);
     int id = shmget(passwd,1024,0666|IPC_CREAT);
-    temp = (char*)shmar(id,NULL,0);
+    temp = (char*)shmat(id,NULL,0);
     int var = 0;
     while(var<50){
         int b = var;
