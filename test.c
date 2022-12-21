@@ -65,12 +65,12 @@ int main()
         while(k < index-2)
         {
             arr[j][k] = rand()%26 + 65;
-            k++
+            k++;
         }
         arr[j][index-1] = '\0';
     }
     char* temp = (char*)malloc(sizeof(arr[0]));
-    passwd_t passwd = ftok("SharedMemory",50);
+    key_t passwd = ftok("SharedMemory",50);
     int id = shmget(passwd,1024,0666|IPC_CREAT);
 
     temp = (char*) shmat(id,NULL,0);
@@ -81,7 +81,7 @@ int main()
         {
             strcpy(temp,arr[a]);
             capture(&temp);
-            a++
+            a++;
         }
         printf("MAX ID received by p1: %d\n",a-1);
     }
