@@ -13,11 +13,10 @@
 
 
 #define num 50
-struct timespec a1;
+
 #define index 9
 
-int min(int x, int y)
-{
+int min(int x, int y){
     if(x>y)
     {
         return y;
@@ -38,6 +37,7 @@ void capture(char** s)
 int main()
 {
     
+    struct timespec a1;
     clock_gettime(CLOCK_REALTIME,&a1);
     char* arr[50];
     int i;
