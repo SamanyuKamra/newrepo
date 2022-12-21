@@ -16,6 +16,7 @@
 int main(){
     int file_add;
     struct timespec a2;
+    struct timespec a1;
     
     char fifo_add[20] = "helloo";
 
