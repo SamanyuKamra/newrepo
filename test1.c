@@ -1,52 +1,60 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <string.h>
-#include <unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<time.h>
+#include<sys/stat.h>
+#include<sys/types.h>
+#include<fcntl.h>
+#include<errno.h>
+#include<unistd.h>
+#include<math.h>
+#include<sys/ipc.h>
+#include<sys/shm.h>
+#include <semaphore.h>
 
-#define PORT 8080
+#define num 50
+#define index 8
+#define file "sem"
+struct timespec a1;
+struct timespec a2;
+
+int min(int x, int y)
+{
+    if(x>y)
+    {
+        return y;
+    }
+    else{
+        return x;
+    }
+}
+void leave(char** s)
+{
+    strcpy(*s,"waiting");
+}
+void capture(char** s)
+{
+    while(strcmp(*s,"waiting")==0){}
+}
 
 int main()
 {
-	int sock = 0, valread;
-	struct sockaddr_in serv_addr;
+    char* temp = (char*)malloc((index)*sizeof(char));
+    passwd_t passwd = ftok("SharedMemory",50);
+    int id = shmget(passwd,1024,0666|IPC_CREAT);
+    temp = (char*)shmar(id,NULL,0);
+    int var = 0;
+    while(var<50){
+        int b = var;
+        for(;b<min(var+5,num);b++){
+            capture(&temp);
+            printf("received by p2 : %s\n",temp);
+            leave(&temp);
 
-	char strings[1024] = {0};
-	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-	{
-		printf("\n Socket creation error \n");
-		return -1;
-	}
-
-	serv_addr.sin_family = AF_INET;
-	serv_addr.sin_port = htons(PORT);
-	
-	// Convert IPv4 and IPv6 addresses from text to binary form
-	if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0)
-	{
-		printf("\nInvalid address/ Address not supported \n");
-		return -1;
-	}
-
-	if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
-	{
-		printf("\nConnection Failed \n");
-		return -1;
-	}
-
-	int curr = 1;
-	while(curr < 50){
-
-		valread = read( sock , strings, 1024);
-		printf("Stirngs received from p1 :- \n");
-		printf("%s\n",strings );
-		curr+=5;
-		char ind[5];
-		sprintf(ind,"%d",curr);
-		send(sock , ind , strlen(ind) , 0 );
-		printf("Highest index sent from p2 to p1\n");
-		
-
-	}
-	return 0;
+        }
+        var+=5;
+    }
+    clock_gettime(CLOCK_REALTIME,&a2);
+    printf("Exexution time = %f\n",fabs(((a2.tv_sec - a1.tv_sec)+(a2.tv_nsec - a1.tv_nsec))/1e9));
+    return 0;
 }
